@@ -1,0 +1,495 @@
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes rotate-negative-to-positive {
+    0% {
+        transform: rotate(-20deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.section {
+    $animationStyle: ease-in-out;
+
+    $animationDurationShort: 750ms;
+    $animationDurationMedium: 1000ms;
+    $animationDurationLong: 1250ms;
+
+    $animationDelayShort: 200ms;
+    $animationDelayMedium: 400ms;
+    $animationDelayLong: 600ms;
+
+    // shared animations
+    &.markenidee,
+    &.produkte,
+    &.mission,
+    &.vision,
+    &.hintergrund,
+    &.wertschopfung,
+    &.kontakt {
+
+        .section-titlebar {
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: $animationStyle;
+        }
+
+        &.in-view {
+
+            .section-titlebar {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.was-wir-tun {
+
+        .circle-picture,
+        .circle-text,
+        .top-left-item-wrap .check-item,
+        .top-left-item-wrap .close-item,
+        .bottom-left-item-wrap .card,
+        .right-background {
+            transition-property: opacity, transform;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: $animationStyle;
+        }
+
+        .circle-picture,
+        .circle-text,
+        .top-left-item-wrap .check-item,
+        .top-left-item-wrap .close-item,
+        .bottom-left-item-wrap .card,
+        .right-background {
+            opacity: 0;
+        }
+
+        .circle-picture,
+        .circle-text {
+            transition-duration: 2000ms;
+        }
+
+        .top-left-item-wrap {
+
+            .check-item {
+                transform: translateX(-50%);
+                transition-delay: $animationDelayShort;
+            }
+
+            .close-item {
+                transform: translateX(-50%);
+                transition-delay: $animationDelayMedium;
+            }
+        }
+
+        .card {
+            transform: translateX(-50%);
+
+            &:nth-of-type(1) {
+                transition-delay: $animationDurationLong;
+            }
+
+            &:nth-of-type(2) {
+                transition-delay: $animationDurationMedium;
+            }
+
+            &:nth-of-type(3) {
+                transition-delay: $animationDurationShort;
+            }
+
+            @media screen and (max-width: 768px) {
+
+                &:nth-of-type(3) {
+                    transition-delay: $animationDurationLong;
+                }
+
+                &:nth-of-type(2) {
+                    transition-delay: $animationDurationMedium;
+                }
+
+                &:nth-of-type(1) {
+                    transition-delay: $animationDurationShort;
+                }
+            }
+        }
+
+        .right-background {
+            transition-delay: $animationDelayShort;
+        }
+
+        &.in-view {
+
+            .circle-picture,
+            .circle-text,
+            .top-left-item-wrap .check-item,
+            .top-left-item-wrap .close-item,
+            .bottom-left-item-wrap .card,
+            .right-background {
+                opacity: 1;
+            }
+
+            .top-left-item-wrap {
+
+                .check-item,
+                .close-item {
+                    transform: translateX(0);
+                }
+            }
+
+            .card {
+                &:nth-of-type(1),
+                &:nth-of-type(2),
+                &:nth-of-type(3) {
+                    transform: translateX(0);
+                }
+            }
+
+            .circle-picture {
+                animation: rotate-negative-to-positive 2s forwards linear;
+            }
+        }
+    }
+
+    &.markenidee {
+
+        .section-part {
+            //transform: translateX(-50%);
+            opacity: 0;
+
+            &.left,
+            &.right {
+                transition-property: opacity;
+                transition-timing-function: $animationStyle;
+                transition-duration: $animationDurationShort;
+            }
+
+            &.left {
+                transition-delay: $animationDelayMedium;
+
+                @media screen and (max-width: 768px) {
+                    transition-delay: $animationDelayShort;
+                }
+            }
+
+            &.right {
+                transition-delay: $animationDelayShort;
+
+                @media screen and (max-width: 768px) {
+                    transition-delay: $animationDelayMedium;
+                }
+            }
+        }
+
+        &.in-view {
+
+            .section-part {
+                opacity: 1;
+                //transform: translateX(0);
+            }
+        }
+    }
+
+    &.produkte {
+
+        .plastic {
+            opacity: 0;
+            transform: translateY(-100%);
+            transition-property: opacity, transform;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: $animationStyle;
+        }
+
+        .section-card {
+            transition-property: opacity, transform;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: $animationStyle;
+
+            @media screen and (min-width: 768px) {
+                transform: translateX(-100%);
+                opacity: 0;
+
+                &:nth-of-type(1) {
+                    transition-delay: $animationDelayLong;
+                }
+
+                &:nth-of-type(2) {
+                    transition-delay: $animationDelayMedium;
+                }
+
+                &:nth-of-type(3) {
+                    transition-delay: $animationDelayShort;
+                }
+            }
+        }
+
+        &.in-view {
+
+            .plastic,
+            .section-card{
+                opacity: 1;
+                transform: translateX(0) translateY(0);
+            }
+        }
+    }
+
+    &.mission {
+
+        .section-row {
+
+            .left,
+            .right {
+                opacity: 0;
+                transition-property: opacity, transform;
+                transition-duration: $animationDurationShort;
+                transition-timing-function: $animationStyle;
+            }
+
+            &:not(.second) {
+
+                .left {
+                    transition-delay: $animationDelayMedium;
+                }
+            }
+
+            &.second {
+
+                //.left,
+                //.right {
+                //    transform: translateX(-50%);
+                //}
+
+                .left {
+                    transition-delay: $animationDelayLong + 500;
+                }
+
+                .right {
+                    transition-delay: $animationDelayLong;
+                }
+
+                @media screen and (max-width: 1000px) {
+
+                    .left {
+                        transition-delay: $animationDelayMedium;
+                    }
+
+                    .right {
+                        transition-delay: $animationDelayLong;
+                    }
+                }
+            }
+        }
+
+        &.in-view {
+
+            .section-row {
+
+                .left,
+                .right {
+                    opacity: 1;
+                }
+
+                //&.second {
+                //
+                //    .left,
+                //    .right {
+                //        transform: translateX(0);
+                //    }
+                //}
+            }
+        }
+    }
+
+    &.vision {
+
+        .left,
+        .right {
+            //transform: translateX(-50%);
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: $animationStyle;
+        }
+
+        .left {
+            transition-delay: $animationDelayLong;
+        }
+
+        .right {
+            //transform: translateX(-100%);
+            transition-delay: $animationDelayMedium;
+        }
+
+        //.slice span {
+        //    opacity: 0;
+        //    transition-property: opacity;
+        //    transition-duration: $animationDurationShort;
+        //    transition-timing-function: $animationStyle;
+        //    transition-delay: $animationDelayLong + $animationDelayMedium;
+        //}
+
+        &.in-view {
+
+            .left,
+            .right {
+                //transform: translateX(0);
+                opacity: 1;
+            }
+
+            //.slice span {
+            //    opacity: 1;
+            //}
+        }
+    }
+
+    &.hintergrund {
+
+        .circle,
+        .logo,
+        .derux,
+        .bottom,
+        .left,
+        .right,
+        .circles-separator{
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: ease-in-out;
+        }
+
+        .circle {
+            transition-duration: 2000ms;
+        }
+
+        .logo,
+        .circles-separator {
+            transition-delay: 250ms;
+        }
+
+        .derux {
+            transition-delay: 500ms;
+        }
+
+        .bottom {
+            transition-delay: 750ms;
+        }
+
+        .left {
+            transition-delay: 1000ms;
+        }
+
+        .right {
+            transition-delay: 1250ms;
+        }
+
+        &.in-view {
+            .circle,
+            .logo,
+            .derux,
+            .bottom,
+            .left,
+            .right {
+                opacity: 1;
+            }
+
+            .circle-picture {
+                animation: rotate-negative-to-positive 2000ms forwards linear;
+            }
+        }
+    }
+
+    &.wertschopfung {
+
+        .left,
+        .right {
+            //transform: translateX(-50%);
+            opacity: 0;
+            transition-property: opacity, transform;
+            transition-duration: $animationDurationShort;
+            transition-timing-function: $animationStyle;
+        }
+
+        .left {
+            transition-delay: $animationDelayMedium;
+        }
+
+        .right {
+            transition-delay: $animationDelayShort;
+        }
+
+        &.in-view {
+
+            .left,
+            .right {
+                opacity: 1;
+                //transform: translateX(0);
+            }
+        }
+    }
+
+    &.wir {
+
+        .ceo {
+            opacity: 0;
+            transition-property: opacity;
+            transition-duration: $animationDurationMedium;
+            transition-timing-function: $animationStyle;
+
+            &.gerd {
+                transition-delay: $animationDelayMedium;
+
+                @media screen and (max-width: 768px) {
+                    transition-delay: $animationDelayShort;
+                }
+            }
+
+            &.samarin {
+                transition-delay: $animationDelayShort;
+
+                @media screen and (max-width: 768px) {
+                    transition-delay: $animationDelayMedium;
+                }
+            }
+        }
+
+        &.in-view {
+
+            .ceo {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.kontakt {
+
+        .circle-with-leaves,
+        .circle-picture,
+        .circle-text {
+            transition-property: opacity;
+            transition-timing-function: $animationStyle;
+            transition-duration: 2s;
+            opacity: 0;
+        }
+
+        &.in-view {
+
+            .circle-with-leaves,
+            .circle-text {
+                opacity: 1;
+            }
+
+            .circle-picture {
+                opacity: 1;
+                animation: rotate-negative-to-positive 2s forwards linear;
+            }
+        }
+    }
+}

@@ -1,0 +1,129 @@
+.section.mission {
+    background-color: $white;
+    z-index: 4;
+
+    .section-row {
+        display: flex;
+        position: relative;
+        padding: 6rem 0;
+
+        @media screen and (max-width: 1000px) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        &:not(.second) {
+            margin-top: 8rem;
+            padding-top: 3rem;
+
+            @media screen and (max-width: 1000px) {
+                margin-top: 0;
+            }
+
+            .left {
+                margin-right: 50rem;
+                max-width: 700px;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                @media screen and (max-width: 1000px) {
+                    margin-right: 0;
+                }
+            }
+
+            .right {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("#{$img-path}mission/percentage-20.png");
+                width: 560px;
+                height: 100%;
+                position: absolute;
+                right: -100px;
+                top: 0;
+                transition-property: opacity !important;
+
+                @media screen and (max-width: 1000px) {
+                    position: initial;
+                    margin-left: 6rem;
+                    height: 47rem;
+                    background-size: 47rem 47rem;
+                }
+
+                @media screen and (max-width: 450px) {
+                    height: 42rem;
+                    background-size: 42rem 42rem;
+                }
+            }
+        }
+
+        h3 {
+            font-size: 4rem;
+            color: $accent-light;
+            font-family: $font-family-serif;
+
+            @media screen and (max-width: 1200px) {
+                font-size: 3.5rem;
+                text-align: center;
+            }
+
+            @media screen and (max-width: 769px) {
+                font-size: 2.8rem;
+                max-width: 80%;
+                margin: 0 auto;
+            }
+
+            @media screen and (max-width: #{$mobile-only}) {
+                max-width: unset;
+            }
+        }
+
+        &.second {
+            padding: 0 0 0;
+
+            @media screen and (min-width: 1200px) {
+                padding-top: 6rem;
+            }
+
+            @media screen and (min-width: 1000px) {
+                padding-top: 8rem;
+            }
+
+            @media screen and (max-width: 1000px) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left {
+                background-repeat: no-repeat;
+                background-position: center;
+                background-image: url("#{$img-path}mission/percentage-0.png");
+                width: 500px;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                @media screen and (max-width: 1000px) {
+                    position: initial;
+                    height: 397px;
+                    width: 406px;
+                }
+            }
+
+            .right {
+                margin-left: 50rem;
+                max-width: 700px;
+                justify-content: center;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                @media screen and (max-width: 1000px) {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
