@@ -278,7 +278,7 @@
 
          h3 {
              @media screen and (max-width: 615px) {
-                 word-break: break-all;
+                 word-break: break-word;
              }
          }
     }
@@ -399,7 +399,7 @@
         }
 
         &.last {
-            padding: 4rem 0 4rem 0;
+            padding: 4rem 0 0rem 0;
             font-weight: $font-weight-semibold;
 
             h3 {
